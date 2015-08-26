@@ -38,10 +38,10 @@ int my_process_cb(void* data, const char* command, int return_code, const char* 
         /* TODO messages might arrive in multiple chunks... */
         if (weechat_strcasecmp(out, WEESLEEP_SUSPENDING) == 0) {
             weechat_printf (NULL, TAG "Suspending...", return_code);
-            weechat_command(NULL, "/disconnect");
+            weechat_command(NULL, "/disconnect -all");
         } else if (weechat_strcasecmp(out, WEESLEEP_WAKINGUP) == 0) {
             weechat_printf (NULL, TAG "Waking up...", return_code);
-            weechat_command(NULL, "/reconnect");
+            weechat_command(NULL, "/reconnect -all");
         } else {
             weechat_printf (NULL, TAG "Unknown message received from subprocess: %s", out);
         }
